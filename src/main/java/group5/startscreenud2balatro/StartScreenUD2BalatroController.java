@@ -36,8 +36,12 @@ public class StartScreenUD2BalatroController {
     @FXML
     private void onClickProfile() {
         System.out.println("Profile button clicked!");
-        // Add actions here
-        // User starts
+        // probably just going to screen shot and have the image change but if possible / time allows
+        // Change to Profile screen with Text player1
+        // progress bar?
+        // Collections
+        // Jocker Stickers
+        // Deck stack Wins
 
     }
 
@@ -45,16 +49,15 @@ public class StartScreenUD2BalatroController {
     private void onClickPlay() {
         System.out.println("Play button clicked!");
 
-        // Add actions here
-        // Starts a new game
+        // Generic Balatro Game play image?
     }
 
     @FXML
     private void onClickOptions() {
         System.out.println("Options button clicked!");
 
-        // Add actions here
-        // display user options including help screen
+        // Image of Balatro's options screen
+
     }
 
     @FXML
@@ -62,11 +65,22 @@ public class StartScreenUD2BalatroController {
         System.out.println("Quit button clicked!");
         Stage stage = (Stage) quitButton.getScene().getWindow();  // closes the GUI if the quit button is clicked
         stage.close();
+
+        // Exit the Game possible image change exiting
     }
 
     @FXML
     private void onClickCollection() {
         System.out.println("Collection button clicked!");
-        // Add collection-related functionality here
+
+        // Display Collections Image showing list of all gameplay items
+
+
+
+     // If play looses gui changes to game over image
+        // play again or exit button
+     // If the play wins gui changes to You win screen
+        // play again or exit button
+
     }
 }
