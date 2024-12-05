@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group5.startscreenud2balatro.StartScreenUD2BalatroController">
+    <children>
+
+        <HBox alignment="CENTER" prefHeight="297.0" prefWidth="600.0">
+            <children>
+                <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@StartScreenBalatro.png" />
+                    </image>
+               <HBox.margin>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </HBox.margin>
+                </ImageView>
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER" layoutX="7.0" layoutY="293.0" prefHeight="100.0" prefWidth="584.0" spacing="5.0">
+            <children>
+                <Button fx:id="P1" mnemonicParsing="false" onAction="#onClickProfile" prefHeight="60.0" prefWidth="50.0" text="Profile P1" textAlignment="CENTER" wrapText="true">
+                    <HBox.margin>
+                        <Insets left="10.0" right="36.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="playButton" mnemonicParsing="false" onAction="#onClickPlay" prefHeight="60.0" prefWidth="110.0" text="Play" textAlignment="CENTER" wrapText="true">
+               <HBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </HBox.margin></Button>
+                <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#onClickOptions" prefHeight="50.0" prefWidth="90.0" text="Options" textAlignment="CENTER" wrapText="true">
+               <HBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </HBox.margin></Button>
+                <Button fx:id="quitButton" mnemonicParsing="false" onAction="#onClickQuit" prefHeight="50.0" prefWidth="90.0" text="Quit" textAlignment="CENTER" wrapText="true">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin></Button>
+                <Button fx:id="collectionButton" mnemonicParsing="false" onAction="#onClickCollection" prefHeight="60.0" prefWidth="110.0" text="Collection" textAlignment="CENTER" wrapText="true">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <effect>
+                <InnerShadow />
+            </effect>
+        </HBox>
+    </children>
+</Pane>
