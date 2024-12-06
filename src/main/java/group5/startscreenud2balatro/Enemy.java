@@ -8,10 +8,10 @@ public class Enemy extends Unit {
     //enemy unit action that depends on their health. Plus returns a string to state what they're doing
     public String action(Unit target){
         //if enemy unit is at half health, the unit will either heal or take a defensive stance
-        if(this.health <= (this.health / 2)){
+        if(this.currentHealth <= (this.maxHealth / 2)){
             if(this.type == "healer"){
-                this.health = (int) (this.health * 1.1); //heals for 10% of it's health
-                return this.name + " heals for " + (int)(this.health * .1);
+                target.currentHealth += (int) (this.maxHealth * .1); //heals for 10% of unit's health
+                return this.name + " heals for " + (int)(this.maxHealth * .1);
             }
             else{
                 this.defense = (int)(this.defense * 1.1); //defensive stance
@@ -21,7 +21,7 @@ public class Enemy extends Unit {
         }
         //if enemy's health is high enough, it will attack instead
         else{
-            target.health = target.health - (this.attack / target.defense);
+            target.currentHealth = target.currentHealth - (this.attack / target.defense);
             return this.name + " attacks " + target.name + " for " + this.attack + " damage.";
         }
 
