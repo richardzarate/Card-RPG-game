@@ -8,29 +8,31 @@ public class Friend extends Unit{
 
     //action function for Friend class depends on the unit and card stats plus if the card type matches the unit type
     public void action(Card card, Unit target){
+
         //check if the card type and unit type matches first
         if(card.getActionType().equals(this.type)){
             if(card.getActionType().equals("heal")){
-                target.health += card.getActionValue() + this.health;
+                target.currentHealth += 2 * card.getActionValue();
             }
             else if(card.getActionType().equals("attack")){
-                target.health -= card.getActionValue() + (this.attack / target.defense);
+                target.currentHealth -= card.getActionValue() + (this.attack / target.defense);
             }
             else if(card.getActionType().equals("defend")){
-                this.defense += (card.getActionValue() + this.defense); //double the defense plus the card value if both card and unit type are defensive
+                this.defense += (2 * card.getActionValue()); //double the defense plus the card value if both card and unit type are defensive
             }
+
+        }
         //if they don't match do this instead
         else{
             if(card.getActionType().equals("heal")){
-                target.health += card.getActionValue();
+                target.currentHealth += card.getActionValue();
             }
             else if(card.getActionType().equals("attack")){
-                target.health -= (card.getActionValue() / target.defense);
+                target.currentHealth -= (card.getActionValue() / target.defense);
             }
             else if(card.getActionType().equals("defend")){
                 this.defense += card.getActionValue();
             }
-        }
         }
     }
 }
