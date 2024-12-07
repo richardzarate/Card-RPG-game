@@ -11,32 +11,47 @@ import javafx.scene.text.Text;
 public class GamePlayController {
 
     @FXML
-    private TextField gamePlayTextField;
+    private TextField activityLogTextField;
     @FXML
-    private ProgressBar PlayerProgressBar;
+    private TextField playerInput;
     @FXML
-    private ProgressBar enemyProgressBar;
+    private TextField attackType1;
     @FXML
-    private Text player;
+    private TextField attackType2;
     @FXML
-    private Text enemy;
-
+    private TextField attackType3;
+    @FXML
+    private TextField attackType4;
+    @FXML
+    private TextField attackType5;
+    private TextField playCharacterType1;
+    @FXML
+    private TextField playCharacterType2;
+    @FXML
+    private TextField playCharacterType3;
+    private TextField playingCharacterType1;
+    @FXML
+    private TextField playingCharacterType2;
+    @FXML
+    private TextField playingCharacterType3;
 
     /**
      * Updates the game state and modifies the label accordingly.
      * @param state The state of the game ("Playing", "Win", "Lose").
      */
-    public void setGameState(String state) {
+   /* public void setGameState(String state) {
         switch (state) {
             case "Win":
-                gamePlayTextField.setText("You Win!");
+                activityLogTextField.setText("You Win!");
                 break;
             case "Lose":
-                gamePlayTextField.setText("Game Over");
+                activityLogTextField.setText("Game Over");
                 break;
             default:
-                gamePlayTextField.setText("Playing...");
+                activityLogTextField.setText("Playing...");
         }
     }
+*/
+
 
 }
