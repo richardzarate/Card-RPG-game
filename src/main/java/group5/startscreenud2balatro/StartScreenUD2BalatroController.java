@@ -1,5 +1,4 @@
 package group5.startscreenud2balatro;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,17 +39,15 @@ public class StartScreenUD2BalatroController {
     }
 
     @FXML
-    private void onClickProfile() {
-        System.out.println("Profile button clicked!");
-        // probably just going to screen shot and have the image change but if possible / time allows
-        // Change to Profile screen with Text player1
-        // progress bar?
-        // Collections
-        // Jocker Stickers
-        // Deck stack Wins
-
+    private void onClickProfile(ActionEvent e) throws IOException {
+        System.out.println("Profile Button Clicked!");
+        // Load profile scene
+            FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/group5/profileScreen.fxml"));
+            Parent profileRoot =  fxmlLoader2.load();
+            Scene profileScene = new Scene(profileRoot);
+            Stage stage = (Stage) P1.getScene().getWindow();
+            stage.setScene(profileScene);
     }
-
     @FXML
     private void onClickPlay(ActionEvent event) throws IOException {
         System.out.println("Play button clicked!");
