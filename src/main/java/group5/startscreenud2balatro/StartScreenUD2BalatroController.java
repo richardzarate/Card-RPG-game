@@ -77,20 +77,13 @@ public class StartScreenUD2BalatroController {
     }
 
     @FXML
-    private void onClickCollection() {
-        System.out.println("Collection button clicked!");
-
-        // Display Collections Image showing list of all gameplay items
-        // stage.setScene() method to change to collection
-
-
-
-     // If play looses gui changes to game over image
-        // play again or exit button
-        //stage.setScene() method to change
-     // If the play wins gui changes to You win screen
-        // play again or exit button
-        //stage.setScene() method to change
-
+    private void onClickCollection(ActionEvent e) throws IOException {
+        System.out.println("Collection Button Clicked!");
+        FXMLLoader fxmlLoader3 = new FXMLLoader(getClass().getResource("/group5/CollectionsScene.fxml"));
+        Parent collectionsRoot = fxmlLoader3.load();
+        Scene collectionsScene = new Scene(collectionsRoot);
+        Stage stage = (Stage) collectionButton.getScene().getWindow();
+        stage.setScene(collectionsScene);
     }
+
 }
