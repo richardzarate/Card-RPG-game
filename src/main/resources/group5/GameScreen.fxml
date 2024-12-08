@@ -7,15 +7,15 @@
 <Pane fx:id="floorLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="activityLogLabel" layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="77.0" text="Activity Log" />
-      <TextField fx:id="activityLogTextField" alignment="TOP_LEFT" layoutX="7.0" layoutY="31.0" prefHeight="306.0" prefWidth="149.0" />
+      <TextArea fx:id="activityLogTextField" layoutX="7.0" layoutY="31.0" prefHeight="306.0" prefWidth="149.0" />
       <Label fx:id="playerInputLabel" layoutX="228.0" layoutY="347.0" prefHeight="17.0" prefWidth="77.0" text="Player input" />
-      <TextField fx:id="playerInput" layoutX="228.0" layoutY="371.0" prefHeight="40.0" prefWidth="350.0" />
+      <TextArea fx:id="playerInput" layoutX="228.0" layoutY="371.0" prefHeight="40.0" prefWidth="350.0" />
       <VBox layoutX="193.0" layoutY="8.0" prefHeight="250.0" prefWidth="100.0" spacing="8.0">
          <children>
             <Label prefHeight="17.0" prefWidth="64.0" text="Floor 1" />
-            <TextField fx:id="playingCharacterType1" prefHeight="65.0" prefWidth="100.0" />
-            <TextField fx:id="playingCharacterType2" prefHeight="65.0" prefWidth="100.0" />
-            <TextField fx:id="playingCharacterType3" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playingCharacterType1" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playingCharacterType2" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playingCharacterType3" prefHeight="65.0" prefWidth="100.0" />
          </children>
          <padding>
             <Insets top="2.0" />
@@ -24,9 +24,9 @@
       <VBox layoutX="500.0" layoutY="8.0" prefHeight="250.0" prefWidth="100.0" spacing="8.0">
          <children>
             <Label prefHeight="19.0" prefWidth="57.0" text="Label" />
-            <TextField fx:id="playCharacterType1" prefHeight="65.0" prefWidth="100.0" />
-            <TextField fx:id="playCharacterType2" prefHeight="65.0" />
-            <TextField fx:id="playCharacterType3" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playCharacterType1" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playCharacterType2" prefHeight="65.0" />
+            <TextArea fx:id="playCharacterType3" prefHeight="65.0" prefWidth="100.0" />
          </children>
          <padding>
             <Insets top="2.0" />
@@ -34,27 +34,27 @@
       </VBox>
       <HBox alignment="BOTTOM_CENTER" layoutX="241.0" layoutY="272.0" prefHeight="65.0" prefWidth="325.0" spacing="8.0">
          <children>
-            <TextField fx:id="attackType1" prefHeight="60.0" prefWidth="55.0">
+            <TextArea fx:id="attackType1" prefHeight="60.0" prefWidth="55.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
-            </TextField>
-            <TextField fx:id="attackType2" prefHeight="60.0" prefWidth="55.0">
+            </TextArea>
+            <TextArea fx:id="attackType2" prefHeight="60.0" prefWidth="55.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
-            </TextField>
-            <TextField fx:id="attackType3" prefHeight="60.0" prefWidth="55.0">
+            </TextArea>
+            <TextArea fx:id="attackType3" prefHeight="60.0" prefWidth="55.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
-            </TextField>
-            <TextField fx:id="attackType4" prefHeight="60.0" prefWidth="55.0">
+            </TextArea>
+            <TextArea fx:id="attackType4" prefHeight="60.0" prefWidth="55.0">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>
-            </TextField>
-            <TextField fx:id="attackType5" prefHeight="60.0" prefWidth="55.0" />
+            </TextArea>
+            <TextArea fx:id="attackType5" prefHeight="60.0" prefWidth="55.0" />
          </children>
       </HBox>
    </children>

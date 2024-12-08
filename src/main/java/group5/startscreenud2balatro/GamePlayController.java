@@ -2,33 +2,34 @@ package group5.startscreenud2balatro;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class GamePlayController {
 
     @FXML
-    private TextField activityLogTextField;
+    private TextArea activityLogTextField;
     @FXML
-    private TextField playerInput;
+    private TextArea playerInput;
     @FXML
-    private TextField attackType1;
+    private TextArea attackType1;
     @FXML
-    private TextField attackType2;
+    private TextArea attackType2;
     @FXML
-    private TextField attackType3;
+    private TextArea attackType3;
     @FXML
-    private TextField attackType4;
+    private TextArea attackType4;
     @FXML
-    private TextField attackType5;
-    private TextField playCharacterType1;
+    private TextArea attackType5;
+    private TextArea playCharacterType1;
     @FXML
-    private TextField playCharacterType2;
+    private TextArea playCharacterType2;
     @FXML
-    private TextField playCharacterType3;
-    private TextField playingCharacterType1;
+    private TextArea playCharacterType3;
+    private TextArea playingCharacterType1;
     @FXML
-    private TextField playingCharacterType2;
+    private TextArea playingCharacterType2;
     @FXML
-    private TextField playingCharacterType3;
+    private TextArea playingCharacterType3;
 
 }
