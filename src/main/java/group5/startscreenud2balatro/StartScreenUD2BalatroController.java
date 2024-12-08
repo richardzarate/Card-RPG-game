@@ -74,9 +74,6 @@ public class StartScreenUD2BalatroController {
 
         Stage stage = (Stage) quitButton.getScene().getWindow();  // closes the GUI if the quit button is clicked
         stage.close();
-
-        // Exit the Game possible image change exiting
-        // stage.setScene() method to change to exit scene
     }
 
     @FXML
