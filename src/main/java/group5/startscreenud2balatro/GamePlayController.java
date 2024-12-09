@@ -96,8 +96,8 @@ public class GamePlayController {
 
     public void initialize() {
         // Load the image when the scene is initialized
-//        Image image = new Image(getClass().getResource("/group5/gamePlayScreen.png").toExternalForm());
-//        gamePlayImage.setImage(image);
+        // Image image = new Image(getClass().getResource("/group5/gamePlayScreen.png").toExternalForm());
+        // gamePlayImage.setImage(image);
         game = GameMaster.getInstance("Player 1", 10); //Default parameters for testing
         game.initializeFloor();
         floorInfoLabel.setText("Floor:   " + game.getCurrentFloor() + "/" + game.getTotalFloor());
@@ -368,13 +368,15 @@ public class GamePlayController {
     }
 
     private boolean checkCardSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 5) {
+        // changed from && to or
+        if (index < 1 || index > 5) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 5.");
         }
         return true;
     }
     private boolean checkTargetSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 3) {
+        // changed from && to or
+        if (index < 1 || index > 3) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 3.");
         }
         return true;
