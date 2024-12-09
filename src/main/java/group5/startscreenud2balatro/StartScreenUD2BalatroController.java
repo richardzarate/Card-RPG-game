@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -30,6 +31,8 @@ public class StartScreenUD2BalatroController {
 
     @FXML
     private Button collectionButton;
+
+
 
     // method to load the image
     public void initialize() {
@@ -57,6 +60,10 @@ public class StartScreenUD2BalatroController {
         Scene gamePlayScene = new Scene(gamePlayRoot);
         Stage stage = (Stage) playButton.getScene().getWindow();
         stage.setScene(gamePlayScene);
+        stage.setResizable(true);
+
+
+
     }
 
     @FXML
