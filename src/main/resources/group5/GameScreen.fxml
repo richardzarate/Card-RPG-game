@@ -1,66 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane fx:id="floorLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group5.startscreenud2balatro.GamePlayController">
-    <children>
-        <Label fx:id="activityLogLabel" layoutX="9.0" layoutY="5.0" prefHeight="27.0" prefWidth="100.0" text="Activity Log" />
-        <TextArea fx:id="activityLogTextField" layoutX="7.0" layoutY="31.0" prefHeight="306.0" prefWidth="149.0" />
-        <Button fx:id="homeButton" layoutX="24.0" layoutY="399.0" mnemonicParsing="false" onAction="#onClickhome" text="Home" />
-        <Group layoutX="211.0" layoutY="35.0">
-            <children>
-                <Label fx:id="playerInputLabel" layoutX="228.0" layoutY="347.0" prefHeight="27.0" prefWidth="231.0" text="Please select a card" />
-                <Button fx:id="enterButton" layoutX="394.0" layoutY="372.0" mnemonicParsing="false" onAction="#onEnterClick" text="Enter" />
-                <TextArea fx:id="playerInput" layoutX="228.0" layoutY="372.0" prefHeight="40.0" prefWidth="157.0" />
-            </children>
-        </Group>
-        <VBox layoutX="223.0" layoutY="8.0" prefHeight="275.0" prefWidth="100.0" spacing="8.0">
-            <children>
-                <Label fx:id="floor" prefHeight="17.0" prefWidth="64.0" text="Friendly" />
-                <TextArea fx:id="friend1" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="friend2" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="friend3" prefHeight="90.0" prefWidth="100.0" />
-            </children>
-            <padding>
-                <Insets top="2.0" />
-            </padding>
-        </VBox>
-        <VBox layoutX="768.0" layoutY="8.0" prefHeight="275.0" prefWidth="100.0" spacing="8.0">
-            <children>
-                <Label prefHeight="27.0" prefWidth="74.0" text="Enemies" />
-                <TextArea fx:id="enemy1" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="enemy2" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="enemy3" prefHeight="90.0" prefWidth="100.0" />
-            </children>
-            <padding>
-                <Insets top="2.0" />
-            </padding>
-        </VBox>
-        <HBox alignment="BOTTOM_CENTER" layoutX="220.0" layoutY="295.0" prefHeight="65.0" prefWidth="650.0" spacing="8.0">
-            <children>
-                <TextArea fx:id="card1" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card2" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card3" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card4" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card5" prefHeight="60.0" prefWidth="125.0" />
-            </children>
-        </HBox>
-        <Label fx:id="playerInputLabel11" layoutX="880.0" layoutY="140.0" prefHeight="17.0" prefWidth="10.0" text="2" />
-        <Label fx:id="playerInputLabel111" layoutX="880.0" layoutY="65.0" prefHeight="17.0" prefWidth="10.0" text="1" />
-        <Label fx:id="playerInputLabel112" layoutX="880.0" layoutY="215.0" prefHeight="17.0" prefWidth="10.0" text="3" />
-        <Label fx:id="card1Label" layoutX="273.0" layoutY="360.0" prefHeight="17.0" prefWidth="10.0" text="1" />
-        <Label fx:id="card2Label" layoutX="406.0" layoutY="360.0" prefHeight="17.0" prefWidth="10.0" text="2" />
-        <Label fx:id="card3Label" layoutX="539.0" layoutY="360.0" prefHeight="17.0" prefWidth="10.0" text="3" />
-        <Label fx:id="card4Label" layoutX="672.0" layoutY="360.0" prefHeight="17.0" prefWidth="10.0" text="4" />
-        <Label fx:id="card5Label" layoutX="805.0" layoutY="360.0" prefHeight="17.0" prefWidth="10.0" text="5" />
-        <Label fx:id="cardLabel" layoutX="165.0" layoutY="315.0" prefHeight="27.0" prefWidth="59.0" text="Cards" />
-        <Label fx:id="floorInfoLabel" layoutX="778.0" layoutY="414.0" prefHeight="27.0" prefWidth="102.0" text="Floor" />
-        <Label fx:id="errorMessageLabel" layoutX="438.0" layoutY="450.0" prefHeight="27.0" prefWidth="231.0" text="Error" />
-    </children>
+<Pane fx:id="floorLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group5.startscreenud2balatro.GamePlayController">
+   <children>
+      <Label fx:id="activityLogLabel" layoutX="14.0" layoutY="8.0" prefHeight="17.0" prefWidth="77.0" text="Activity Log" />
+      <TextArea fx:id="activityLogTextField" layoutX="7.0" layoutY="31.0" prefHeight="306.0" prefWidth="149.0" />
+      <Button fx:id="homeButton" layoutX="56.0" layoutY="371.0" mnemonicParsing="false" onAction="#onClickHome" text="Home" />
+      <Label fx:id="playerInputLabel" layoutX="228.0" layoutY="347.0" prefHeight="17.0" prefWidth="77.0" text="Player input" />
+      <TextArea fx:id="playerInput" layoutX="228.0" layoutY="371.0" prefHeight="40.0" prefWidth="350.0" />
+      <VBox layoutX="193.0" layoutY="8.0" prefHeight="250.0" prefWidth="100.0" spacing="8.0">
+         <children>
+            <Label fx:id="floor" prefHeight="17.0" prefWidth="64.0" text="Floor 1" />
+            <TextArea fx:id="playingCharacterType1" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playingCharacterType2" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playingCharacterType3" prefHeight="65.0" prefWidth="100.0" />
+         </children>
+         <padding>
+            <Insets top="2.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="500.0" layoutY="8.0" prefHeight="250.0" prefWidth="100.0" spacing="8.0">
+         <children>
+            <Label prefHeight="19.0" prefWidth="57.0" text="Options" />
+            <TextArea fx:id="playCharacterType1" prefHeight="65.0" prefWidth="100.0" />
+            <TextArea fx:id="playCharacterType2" prefHeight="65.0" />
+            <TextArea fx:id="playCharacterType3" prefHeight="65.0" prefWidth="100.0" />
+         </children>
+         <padding>
+            <Insets top="2.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="BOTTOM_CENTER" layoutX="241.0" layoutY="272.0" prefHeight="65.0" prefWidth="325.0" spacing="8.0">
+         <children>
+            <TextArea fx:id="attackType1" prefHeight="60.0" prefWidth="55.0">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="attackType2" prefHeight="60.0" prefWidth="55.0">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="attackType3" prefHeight="60.0" prefWidth="55.0">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="attackType4" prefHeight="60.0" prefWidth="55.0">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="attackType5" prefHeight="60.0" prefWidth="55.0" />
+         </children>
+      </HBox>
+   </children>
 </Pane>
