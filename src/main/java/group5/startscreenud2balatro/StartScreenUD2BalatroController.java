@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -31,6 +32,8 @@ public class StartScreenUD2BalatroController {
     @FXML
     private Button collectionButton;
 
+
+
     // method to load the image
     public void initialize() {
         // Load the image
@@ -42,11 +45,11 @@ public class StartScreenUD2BalatroController {
     private void onClickProfile(ActionEvent e) throws IOException {
         System.out.println("Profile Button Clicked!");
         // Load profile scene
-            FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/group5/profileScreen.fxml"));
-            Parent profileRoot =  fxmlLoader2.load();
-            Scene profileScene = new Scene(profileRoot);
-            Stage stage = (Stage) P1.getScene().getWindow();
-            stage.setScene(profileScene);
+        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/group5/profileScreen.fxml"));
+        Parent profileRoot =  fxmlLoader2.load();
+        Scene profileScene = new Scene(profileRoot);
+        Stage stage = (Stage) P1.getScene().getWindow();
+        stage.setScene(profileScene);
     }
     @FXML
     private void onClickPlay(ActionEvent event) throws IOException {
@@ -57,6 +60,10 @@ public class StartScreenUD2BalatroController {
         Scene gamePlayScene = new Scene(gamePlayRoot);
         Stage stage = (Stage) playButton.getScene().getWindow();
         stage.setScene(gamePlayScene);
+        stage.setResizable(true);
+
+
+
     }
 
     @FXML
@@ -87,3 +94,4 @@ public class StartScreenUD2BalatroController {
     }
 
 }
+
