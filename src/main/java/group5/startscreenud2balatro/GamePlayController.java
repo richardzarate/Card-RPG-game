@@ -1,12 +1,17 @@
 package group5.startscreenud2balatro;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class GamePlayController {
@@ -47,6 +52,8 @@ public class GamePlayController {
 
     @FXML
     private Button enterButton;
+    @FXML
+    private Button homeButton;
 
     @FXML
     private TextArea playerInput;
@@ -69,12 +76,28 @@ public class GamePlayController {
 
     boolean gameOver = false;
 
+    @FXML
+    private void onClickhome() {
+        System.out.println(" Returning to main menue ");
 
+        // Load the StartScreen scene
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/group5/StartScreenUD2Balatro.fxml"));
+            Parent startScreenRoot = fxmlLoader.load();
+            Scene startScreenScene = new Scene(startScreenRoot);
+
+            // Get the current stage and set the StartScreen scene
+            Stage stage = (Stage) homeButton.getScene().getWindow();
+            stage.setScene(startScreenScene);
+        } catch (IOException e) {
+            System.err.println("Error loading StartScreen: " + e.getMessage());
+        }
+    }
 
     public void initialize() {
         // Load the image when the scene is initialized
-//        Image image = new Image(getClass().getResource("/group5/gamePlayScreen.png").toExternalForm());
-//        gamePlayImage.setImage(image);
+        // Image image = new Image(getClass().getResource("/group5/gamePlayScreen.png").toExternalForm());
+        // gamePlayImage.setImage(image);
         game = GameMaster.getInstance("Player 1", 10); //Default parameters for testing
         game.initializeFloor();
         floorInfoLabel.setText("Floor:   " + game.getCurrentFloor() + "/" + game.getTotalFloor());
@@ -150,13 +173,6 @@ public class GamePlayController {
 
         try{
             selectedIndex = Integer.parseInt(input) - 1;
-
-            // validates card selection isn't larger than hand size
-            if (selectedIndex < 0 || selectedIndex >= game.getHand().size() - 1) {
-                errorMessageLabel.setText("Invalid card selection. Please select a valid card.");
-                return;
-            }
-
             if(selectedCard == null){
 
                 selectedCard = game.getHand().get(selectedIndex);
@@ -352,13 +368,15 @@ public class GamePlayController {
     }
 
     private boolean checkCardSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 5) {
+        // changed from && to or
+        if (index < 1 || index > 5) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 5.");
         }
         return true;
     }
     private boolean checkTargetSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 3) {
+        // changed from && to or
+        if (index < 1 || index > 3) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 3.");
         }
         return true;
