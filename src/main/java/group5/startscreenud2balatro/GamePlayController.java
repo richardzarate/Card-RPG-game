@@ -1,23 +1,23 @@
 package group5.startscreenud2balatro;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
 import java.util.Random;
 
 public class GamePlayController {
 
     @FXML
     private Label gameStatusLabel;
+
 
     @FXML
     private ImageView gamePlayImage;
@@ -58,7 +58,6 @@ public class GamePlayController {
     @FXML
     private TextArea playerInput;
 
-    @FXML
     private Label playerInputLabel;
 
     @FXML
@@ -76,6 +75,7 @@ public class GamePlayController {
 
     boolean gameOver = false;
 
+
     @FXML
     private void onClickhome() {
         System.out.println(" Returning to main menue ");
@@ -91,8 +91,8 @@ public class GamePlayController {
             stage.setScene(startScreenScene);
         } catch (IOException e) {
             System.err.println("Error loading StartScreen: " + e.getMessage());
-        }
-    }
+
+
 
     public void initialize() {
         // Load the image when the scene is initialized
@@ -157,6 +157,7 @@ public class GamePlayController {
         if(gameOver){
             activityLogTextField.appendText("Game Over!");
             return;
+
         }
 
         errorMessageLabel.setText("");
@@ -315,6 +316,7 @@ public class GamePlayController {
         floorInfoLabel.setText("Floor:   " + game.getCurrentFloor() + "/" + game.getTotalFloor());
     }
 
+
     //helper function for readability of onEnterClick
     private void makeMove(Card c, int target, boolean heal){
         target -= 1;
@@ -365,6 +367,7 @@ public class GamePlayController {
         loadCards();
         updateTextAreas();
 
+
     }
 
     boolean checkCardSelection(int index) throws IndexOutOfBoundsException {
@@ -400,6 +403,7 @@ public class GamePlayController {
         card1.insertText(0, "Card Type: " + game.getHand().get(0).getActionType() + "\n");
         card1.insertText(0, game.getHand().get(0).getCardName() + "\n");
 
+
         card2.insertText(0, "Card Power: " + game.getHand().get(1).getActionValue());
         card2.insertText(0, "Card Type: " + game.getHand().get(1).getActionType() + "\n");
         card2.insertText(0, game.getHand().get(1).getCardName() + "\n");
@@ -416,7 +420,6 @@ public class GamePlayController {
         card5.insertText(0, "Card Type: " + game.getHand().get(4).getActionType() + "\n");
         card5.insertText(0, game.getHand().get(4).getCardName() + "\n");
     }
-
 
 
     /**
