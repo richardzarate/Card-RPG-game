@@ -367,14 +367,14 @@ public class GamePlayController {
 
     }
 
-    private boolean checkCardSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 5) {
+    boolean checkCardSelection(int index) throws IndexOutOfBoundsException {
+        if (index < 1 && index < 5) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 5.");
         }
         return true;
     }
     private boolean checkTargetSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 3) {
+        if (index < 1 && index < 3) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 3.");
         }
         return true;
