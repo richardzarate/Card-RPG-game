@@ -12,22 +12,26 @@ public class Friend extends Unit{
         int actionValue = 0;
         //check if the card type and unit type matches first
         if(card.getActionType().equals(this.type)){
-            if(card.getActionType().equals("heal")){
-                actionValue = 2 * card.getActionValue();
-                target.currentHealth += actionValue;
+            if (card.getActionType().equalsIgnoreCase("heal")) {
+                int healAmount = Math.min(card.getActionValue(), target.getMaxHealth() - target.getCurrentHealth());
+                target.setCurrentHealth(target.getCurrentHealth() + healAmount);
+
 
                 return this.getName() + " has healed " + target.getName() + " for " + actionValue + " health points.";
             }
-            else if(card.getActionType().equals("attack")){
-                if(target.getCurrentHealth() <= 0){
-                    return this.getName() + " has attacked an already dead target.";
-                }
-                actionValue = card.getActionValue() + (this.attack / target.defense);
-                target.currentHealth -= actionValue;
+            else  if (card.getActionType().equalsIgnoreCase("attack")) {
+                int rawDamage = card.getActionValue();
+                int mitigatedDamage = Math.max(0, rawDamage - target.getDefense());
+                target.setCurrentHealth(target.getCurrentHealth() - mitigatedDamage);
 
-                return this.getName() + " has attacked " + target.getName() + " for " + actionValue + " damage.";
+                if (mitigatedDamage == 0) {
+                    return this.name + " attacked " + target.getName() + ", but the attack was blocked by defense!";
+                } else {
+                    return this.getName() + " has attacked " + target.getName() + " for " + actionValue + " damage.";
+                }
+
             }
-            else if(card.getActionType().equals("defend")){
+            else if(card.getActionType().equalsIgnoreCase("defend")){
                 actionValue = (2 * card.getActionValue()); //double the defense plus the card value if both card and unit type are defensive
                 this.defense += actionValue;
                 return this.getName() + " has raised defense by " + actionValue + " points.";
