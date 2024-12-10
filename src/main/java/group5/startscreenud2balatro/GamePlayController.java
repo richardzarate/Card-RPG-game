@@ -150,6 +150,13 @@ public class GamePlayController {
 
         try{
             selectedIndex = Integer.parseInt(input) - 1;
+
+            // validates card selection isn't larger than hand size
+            if (selectedIndex < 0 || selectedIndex >= game.getHand().size() - 1) {
+                errorMessageLabel.setText("Invalid card selection. Please select a valid card.");
+                return;
+            }
+
             if(selectedCard == null){
 
                 selectedCard = game.getHand().get(selectedIndex);
