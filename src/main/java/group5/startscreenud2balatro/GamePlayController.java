@@ -7,12 +7,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 import java.util.Random;
 
 public class GamePlayController {
 
     @FXML
     private Label gameStatusLabel;
+
 
     @FXML
     private ImageView gamePlayImage;
@@ -47,11 +52,12 @@ public class GamePlayController {
 
     @FXML
     private Button enterButton;
+    @FXML
+    private Button homeButton;
 
     @FXML
     private TextArea playerInput;
 
-    @FXML
     private Label playerInputLabel;
 
     @FXML
@@ -68,6 +74,23 @@ public class GamePlayController {
     private int unitTurn = 0;
 
     boolean gameOver = false;
+
+
+    @FXML
+    private void onClickhome() {
+        System.out.println(" Returning to main menue ");
+
+        // Load the StartScreen scene
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/group5/StartScreenUD2Balatro.fxml"));
+            Parent startScreenRoot = fxmlLoader.load();
+            Scene startScreenScene = new Scene(startScreenRoot);
+
+            // Get the current stage and set the StartScreen scene
+            Stage stage = (Stage) homeButton.getScene().getWindow();
+            stage.setScene(startScreenScene);
+        } catch (IOException e) {
+            System.err.println("Error loading StartScreen: " + e.getMessage());
 
 
 
@@ -134,6 +157,7 @@ public class GamePlayController {
         if(gameOver){
             activityLogTextField.appendText("Game Over!");
             return;
+
         }
 
         errorMessageLabel.setText("");
@@ -292,6 +316,7 @@ public class GamePlayController {
         floorInfoLabel.setText("Floor:   " + game.getCurrentFloor() + "/" + game.getTotalFloor());
     }
 
+
     //helper function for readability of onEnterClick
     private void makeMove(Card c, int target, boolean heal){
         target -= 1;
@@ -342,16 +367,17 @@ public class GamePlayController {
         loadCards();
         updateTextAreas();
 
+
     }
 
-    private boolean checkCardSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 5) {
+    boolean checkCardSelection(int index) throws IndexOutOfBoundsException {
+        if (index < 1 && index < 5) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 5.");
         }
         return true;
     }
     private boolean checkTargetSelection(int index) throws IndexOutOfBoundsException {
-        if (index < 1 && index > 3) {
+        if (index < 1 && index < 3) {
             throw new IndexOutOfBoundsException("Index must be between 1 and 3.");
         }
         return true;
@@ -377,6 +403,7 @@ public class GamePlayController {
         card1.insertText(0, "Card Type: " + game.getHand().get(0).getActionType() + "\n");
         card1.insertText(0, game.getHand().get(0).getCardName() + "\n");
 
+
         card2.insertText(0, "Card Power: " + game.getHand().get(1).getActionValue());
         card2.insertText(0, "Card Type: " + game.getHand().get(1).getActionType() + "\n");
         card2.insertText(0, game.getHand().get(1).getCardName() + "\n");
@@ -393,7 +420,6 @@ public class GamePlayController {
         card5.insertText(0, "Card Type: " + game.getHand().get(4).getActionType() + "\n");
         card5.insertText(0, game.getHand().get(4).getCardName() + "\n");
     }
-
 
 
     /**
