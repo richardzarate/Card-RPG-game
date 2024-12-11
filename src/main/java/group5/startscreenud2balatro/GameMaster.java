@@ -18,9 +18,9 @@ public class GameMaster {
     The only purpose of these units are for demonstration. Since creating units would take past deadline
      */
 
-    public static Friend f1 = new Friend("Swordsman", 500, 400, 300, "attack");
-    public static Friend f2 = new Friend("Knight", 1000, 700, 600, "defend");
-    public static Friend f3 = new Friend("Healer", 750, 100, 250, "heal");
+    public static Friend f1 = new Friend("Swordsman", 500, 700, 300, "attack");
+    public static Friend f2 = new Friend("Knight", 1000, 1000, 600, "defend");
+    public static Friend f3 = new Friend("Healer", 750, 200, 250, "heal");
 
     private static String[] allPossibleCardTypes = {"attack", "defend", "heal"};
     private static String[] possibleAttackActions = {"Punch", "Swing", "Stab", "Shoot", "Kick", "Uppercut", "Pummel", "Spin Attack"};
@@ -32,7 +32,7 @@ public class GameMaster {
     private static String[] possibleDefensiveEnemyUnits = {"Dark Knight", "Goliath", "Giant", "Mounted Dark Knight", "Demon Shield", "Slave Peasant"};
     private static String[] possibleHealerEnemyUnits = {"Witch Doctor", "Corrupted Priest", "Greedy Doctor", "Cult Leader", "Tormented Alchemist"};
 
-    private static int[] possibleUnitValues = {100, 200, 300, 400, 500};
+    private static int[] possibleUnitValues = {100, 200, 250, 300, 325};
 
 
 
