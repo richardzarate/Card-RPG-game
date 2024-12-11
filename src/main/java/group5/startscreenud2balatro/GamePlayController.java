@@ -262,6 +262,7 @@ public class GamePlayController {
                 }
                 makeMove(selectedCard, selectedTarget, heal);
                 selectedCard = null;
+                selectedTarget = 0;
                 return;
 
             }
@@ -338,10 +339,17 @@ public class GamePlayController {
 
     //helper function for readability of onEnterClick
     private void makeMove(Card c, int target, boolean heal){
+
 //        target -= 1;
         Random random = new Random();
         int randNum = random.nextInt(3);
         String victoryMessage;
+        victoryMessage = game.checkWinner();
+        if(!victoryMessage.equals("")){
+            activityLogTextField.appendText(victoryMessage + "\n");
+            gameOver = true;
+            return;
+        }
         if(heal){
             if(game.getActiveFriendUnits().get(unitTurn).getCurrentHealth() > 0){
                 activityLogTextField.appendText(game.getActiveFriendUnits().get(unitTurn).action(c, game.getActiveFriendUnits().get(target)) + "\n");
@@ -379,10 +387,7 @@ public class GamePlayController {
             game.getHand().remove(selectedCard);
             game.pullCardFromDeck();
         }
-        victoryMessage = game.checkWinner();
-        if(!victoryMessage.equals("")){
-            activityLogTextField.appendText(victoryMessage + "\n");
-        }
+
         loadCards();
         updateTextAreas();
 
