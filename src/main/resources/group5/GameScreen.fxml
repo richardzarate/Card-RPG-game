@@ -8,7 +8,7 @@
 <Pane fx:id="floorLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group5.startscreenud2balatro.GamePlayController">
     <children>
         <Label fx:id="activityLogLabel" layoutX="9.0" layoutY="5.0" prefHeight="27.0" prefWidth="100.0" text="Activity Log" />
-        <TextArea fx:id="activityLogTextField" layoutX="7.0" layoutY="31.0" prefHeight="306.0" prefWidth="149.0" />
+        <TextArea fx:id="activityLogTextField" layoutX="7.0" layoutY="31.0" prefHeight="306.0" prefWidth="149.0" editable = "false"/>
         <Button fx:id="homeButton" layoutX="24.0" layoutY="399.0" mnemonicParsing="false" onAction="#onClickhome" text="Home" />
         <Group layoutX="211.0" layoutY="35.0">
             <children>
@@ -20,9 +20,9 @@
         <VBox layoutX="223.0" layoutY="8.0" prefHeight="275.0" prefWidth="100.0" spacing="8.0">
             <children>
                 <Label fx:id="floor" prefHeight="17.0" prefWidth="64.0" text="Friendly" />
-                <TextArea fx:id="friend1" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="friend2" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="friend3" prefHeight="90.0" prefWidth="100.0" />
+                <TextArea fx:id="friend1" prefHeight="90.0" prefWidth="100.0" editable = "false"/>
+                <TextArea fx:id="friend2" prefHeight="90.0" prefWidth="100.0" editable = "false"/>
+                <TextArea fx:id="friend3" prefHeight="90.0" prefWidth="100.0" editable = "false"/>
             </children>
             <padding>
                 <Insets top="2.0" />
@@ -31,9 +31,9 @@
         <VBox layoutX="768.0" layoutY="8.0" prefHeight="275.0" prefWidth="100.0" spacing="8.0">
             <children>
                 <Label prefHeight="27.0" prefWidth="74.0" text="Enemies" />
-                <TextArea fx:id="enemy1" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="enemy2" prefHeight="90.0" prefWidth="100.0" />
-                <TextArea fx:id="enemy3" prefHeight="90.0" prefWidth="100.0" />
+                <TextArea fx:id="enemy1" prefHeight="90.0" prefWidth="100.0" editable = "false"/>
+                <TextArea fx:id="enemy2" prefHeight="90.0" prefWidth="100.0" editable = "false"/>
+                <TextArea fx:id="enemy3" prefHeight="90.0" prefWidth="100.0" editable = "false"/>
             </children>
             <padding>
                 <Insets top="2.0" />
@@ -41,11 +41,11 @@
         </VBox>
         <HBox alignment="BOTTOM_CENTER" layoutX="220.0" layoutY="295.0" prefHeight="65.0" prefWidth="650.0" spacing="8.0">
             <children>
-                <TextArea fx:id="card1" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card2" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card3" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card4" prefHeight="60.0" prefWidth="125.0" />
-                <TextArea fx:id="card5" prefHeight="60.0" prefWidth="125.0" />
+                <TextArea fx:id="card1" prefHeight="60.0" prefWidth="125.0" editable = "false"/>
+                <TextArea fx:id="card2" prefHeight="60.0" prefWidth="125.0" editable = "false"/>
+                <TextArea fx:id="card3" prefHeight="60.0" prefWidth="125.0" editable = "false"/>
+                <TextArea fx:id="card4" prefHeight="60.0" prefWidth="125.0" editable = "false"/>
+                <TextArea fx:id="card5" prefHeight="60.0" prefWidth="125.0" editable = "false"/>
             </children>
         </HBox>
         <Label fx:id="playerInputLabel11" layoutX="880.0" layoutY="140.0" prefHeight="17.0" prefWidth="10.0" text="2" />

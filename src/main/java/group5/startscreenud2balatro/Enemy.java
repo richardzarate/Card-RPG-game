@@ -2,7 +2,7 @@ package group5.startscreenud2balatro;
 
 public class Enemy extends Unit {
     public Enemy(String name, int health, int attack, int defense, String type){
-        super(name, health, attack, defense, type);
+        super(name, health/5, attack/5, defense/5, type);
     }
 
     //enemy unit action that depends on their health. Plus returns a string to state what they're doing
@@ -16,18 +16,18 @@ public class Enemy extends Unit {
             }
             else{
                 this.defense = (int)(this.defense * 1.1); //defensive stance
-                return this.name + " goes into defensive stance.";
+                return this.name + " goes into defensive stance.\n";
             }
 
         }
         //if enemy's health is high enough, it will attack instead
         else{
             if(target.getCurrentHealth() <= 0){
-                return this.getName() + " has attacked an already dead target.";
+                return this.getName() + " has attacked an already dead target.\n";
             }
             damage = (this.attack / target.defense);
             target.currentHealth -= damage;
-            return this.name + " attacks " + target.name + " for " + damage + " damage.";
+            return this.name + " attacks " + target.name + " for " + damage + " damage.\n";
         }
 
 
