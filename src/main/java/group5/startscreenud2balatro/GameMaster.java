@@ -18,9 +18,9 @@ public class GameMaster {
     The only purpose of these units are for demonstration. Since creating units would take past deadline
      */
 
-    public static Friend f1 = new Friend("Swordsman", 250, 300, 150, "attack");
-    public static Friend f2 = new Friend("Knight", 350, 200, 300, "defend");
-    public static Friend f3 = new Friend("Healer", 500, 100, 250, "heal");
+    public static Friend f1 = new Friend("Swordsman", 500, 400, 300, "attack");
+    public static Friend f2 = new Friend("Knight", 1000, 700, 600, "defend");
+    public static Friend f3 = new Friend("Healer", 750, 100, 250, "heal");
 
     private static String[] allPossibleCardTypes = {"attack", "defend", "heal"};
     private static String[] possibleAttackActions = {"Punch", "Swing", "Stab", "Shoot", "Kick", "Uppercut", "Pummel", "Spin Attack"};
@@ -52,9 +52,9 @@ public class GameMaster {
 
     private String[] possibleEnemies = {"Thief", "Witch", "Zombie"};
     //int health, int attack, int defense, String type
-    private int[] healthenemy = {100, 60, 80};
-    private int[] defenseenemy = {50, 40, 80};
-    private int[] attackenemy = {90, 60, 70};
+    private int[] healthenemy = {30, 40, 15};
+    private int[] defenseenemy = {15, 10, 5};
+    private int[] attackenemy = {50, 35, 25};
     private String[] typeenemy = {"attack", "heal", "attack"};
 
 
@@ -251,7 +251,7 @@ public class GameMaster {
                 break;
             }
             else{
-                victoryMessage = "Enemies has won. You Lose!";
+                victoryMessage = "Enemies has won. You Lose!\n";
                 return victoryMessage;
             }
         }
@@ -264,10 +264,10 @@ public class GameMaster {
             else{
                 victoryMessage = "You won!";
                 if(currentFloor >= totalFloor){
-                    victoryMessage += " Congratulations you conquered the Tower!";
+                    victoryMessage += " Congratulations you conquered the Tower!\n";
                 }
                 else{
-                    victoryMessage += " Moving on to next floor!";
+                    victoryMessage += " Moving on to next floor!\n";
                     currentFloor++;
                     initializeFloor();
                 }

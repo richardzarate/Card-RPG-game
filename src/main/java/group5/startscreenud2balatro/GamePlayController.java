@@ -78,7 +78,7 @@ public class GamePlayController {
 
     @FXML
     private void onClickhome() {
-        System.out.println(" Returning to main menue ");
+        System.out.println(" Returning to main menu");
 
         // Load the StartScreen scene
         try {
@@ -147,7 +147,7 @@ public class GamePlayController {
         loadCards();
 
         activityLogTextField.setWrapText(true);
-        activityLogTextField.insertText(0, game.getPlayer() + " has entered the Tower. Starting on Floor 1....\n");
+        activityLogTextField.insertText(0, game.getPlayer() + " has entered the Tower. Starting on Floor 1....\n\n");
 
         errorMessageLabel.setText("");
 
@@ -348,7 +348,7 @@ public class GamePlayController {
                 activityLogTextField.appendText(game.getActiveFriendUnits().get(unitTurn).action(c, game.getActiveEnemyUnits().get(target)) + "\n");
             }
             else{
-                activityLogTextField.appendText(game.getActiveFriendUnits().get(unitTurn).getName() + " is already dead\n");
+                activityLogTextField.appendText(game.getActiveFriendUnits().get(unitTurn).getName() + " is already dead");
             }
             if(game.getActiveFriendUnits().get(unitTurn).getCurrentHealth() > 0){
                 activityLogTextField.appendText(game.getActiveEnemyUnits().get(unitTurn).action(game.getActiveFriendUnits().get(randNum)) + "\n");
@@ -360,7 +360,7 @@ public class GamePlayController {
 
         }
         unitTurn++;
-        playerInputLabel.setText("Please select a card");
+        playerInputLabel.setText("Please select a card for " + game.getActiveFriendUnits().get(unitTurn).getName());
         if(game.getActiveFriendUnits().get(unitTurn).getCurrentHealth() > 0){
             game.getHand().remove(selectedCard);
             game.pullCardFromDeck();

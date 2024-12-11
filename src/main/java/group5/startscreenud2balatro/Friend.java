@@ -17,7 +17,7 @@ public class Friend extends Unit{
                 target.setCurrentHealth(target.getCurrentHealth() + healAmount);
 
 
-                return this.getName() + " has healed " + target.getName() + " for " + actionValue + " health points.";
+                return this.getName() + " has healed " + target.getName() + " for " + actionValue + " health points.\n";
             }
             else  if (card.getActionType().equalsIgnoreCase("attack")) {
                 int rawDamage = card.getActionValue();
@@ -25,16 +25,16 @@ public class Friend extends Unit{
                 target.setCurrentHealth(target.getCurrentHealth() - mitigatedDamage);
 
                 if (mitigatedDamage == 0) {
-                    return this.name + " attacked " + target.getName() + ", but the attack was blocked by defense!";
+                    return this.name + " attacked " + target.getName() + ", but the attack was blocked by defense!\n";
                 } else {
-                    return this.getName() + " has attacked " + target.getName() + " for " + actionValue + " damage.";
+                    return this.getName() + " has attacked " + target.getName() + " for " + actionValue + " damage.\n";
                 }
 
             }
             else if(card.getActionType().equalsIgnoreCase("defend")){
                 actionValue = (2 * card.getActionValue()); //double the defense plus the card value if both card and unit type are defensive
                 this.defense += actionValue;
-                return this.getName() + " has raised defense by " + actionValue + " points.";
+                return this.getName() + " has raised defense by " + actionValue + " points.\n";
             }
 
         }
@@ -43,21 +43,21 @@ public class Friend extends Unit{
             if(card.getActionType().equals("heal")){
                 actionValue = card.getActionValue();
                 target.currentHealth += actionValue;
-                return this.getName() + " has healed " + target.getName() + " for " + actionValue + " health points.";
+                return this.getName() + " has healed " + target.getName() + " for " + actionValue + " health points.\n";
             }
             else if(card.getActionType().equals("attack")){
                 if(target.getCurrentHealth() <= 0){
-                    return this.getName() + " has attacked an already dead target.";
+                    return this.getName() + " has attacked an already dead target.\n";
                 }
                 actionValue = (card.getActionValue() / target.defense);
                 target.currentHealth -= actionValue;
-                return this.getName() + " has attacked " + target.getName() + " for " + actionValue + " damage.";
+                return this.getName() + " has attacked " + target.getName() + " for " + actionValue + " damage.\n";
 
             }
             else if(card.getActionType().equals("defend")){
                 actionValue = card.getActionValue();
                 this.defense += actionValue;
-                return this.getName() + " has raised defense by " + actionValue + " points.";
+                return this.getName() + " has raised defense by " + actionValue + " points.\n";
             }
         }
         return "Invalid move...";
