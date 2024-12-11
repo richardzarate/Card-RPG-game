@@ -25,7 +25,7 @@ public class Enemy extends Unit {
             if(target.getCurrentHealth() <= 0){
                 return this.getName() + " has attacked an already dead target.";
             }
-            damage = target.currentHealth - (this.attack / target.defense);
+            damage = (this.attack / target.defense);
             target.currentHealth -= damage;
             return this.name + " attacks " + target.name + " for " + damage + " damage.";
         }

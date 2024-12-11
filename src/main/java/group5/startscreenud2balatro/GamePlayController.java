@@ -106,6 +106,9 @@ public class GamePlayController {
         friend1.setWrapText(true);
         friend2.setWrapText(true);
         friend3.setWrapText(true);
+        friend1.setEditable(false);
+        friend2.setEditable(false);
+        friend3.setEditable(false);
 
         friend1.insertText(0, "Defense: " + game.getActiveFriendUnits().get(0).getDefense());
         friend1.insertText(0, "Attack: " + game.getActiveFriendUnits().get(0).getAttack() + "\n");
@@ -127,6 +130,9 @@ public class GamePlayController {
         enemy1.setWrapText(true);
         enemy2.setWrapText(true);
         enemy3.setWrapText(true);
+        enemy1.setEditable(false);
+        enemy2.setEditable(false);
+        enemy3.setEditable(false);
 
         enemy1.insertText(0, "Defense: " + game.getActiveEnemyUnits().get(0).getDefense());
         enemy1.insertText(0, "Attack: " + game.getActiveEnemyUnits().get(0).getAttack() + "\n");
@@ -147,9 +153,12 @@ public class GamePlayController {
         loadCards();
 
         activityLogTextField.setWrapText(true);
+        activityLogTextField.setEditable(false);
         activityLogTextField.insertText(0, game.getPlayer() + " has entered the Tower. Starting on Floor 1....\n");
 
         errorMessageLabel.setText("");
+
+
 
     }
 
@@ -175,15 +184,19 @@ public class GamePlayController {
             selectedIndex = Integer.parseInt(input);
 
             // validates card selection isn't larger than hand size
-            if (selectedIndex < 0 || selectedIndex >= game.getHand().size()) {
-                errorMessageLabel.setText("Invalid card selection. Please select a valid card.");
-                return;
-            }
+//            if (selectedIndex <= 0 && selectedIndex >= game.getHand().size()) {
+//                errorMessageLabel.setText("Invalid card selection. Please select a valid card.");
+//                return;
+//            }
 
             if(selectedCard == null){
 
-                selectedCard = game.getHand().get(selectedIndex);
+
                 cardPicked = checkCardSelection(selectedIndex);
+                if(cardPicked){
+                    selectedCard = game.getHand().get(selectedIndex - 1);
+                }
+
 
                 //clear input
                 playerInput.clear();
@@ -219,7 +232,7 @@ public class GamePlayController {
                     input = playerInput.getText().trim();
                     selectedIndex = Integer.parseInt(input);
                     targetPicked = checkTargetSelection(selectedIndex);
-                    selectedTarget = selectedIndex;
+                    selectedTarget = selectedIndex - 1;
 
                     //clear input
                     playerInput.clear();
@@ -320,11 +333,12 @@ public class GamePlayController {
 
         //update floor label
         floorInfoLabel.setText("Floor:   " + game.getCurrentFloor() + "/" + game.getTotalFloor());
+//        loadCards();
     }
 
     //helper function for readability of onEnterClick
     private void makeMove(Card c, int target, boolean heal){
-        target -= 1;
+//        target -= 1;
         Random random = new Random();
         int randNum = random.nextInt(3);
         String victoryMessage;
@@ -367,7 +381,7 @@ public class GamePlayController {
         }
         victoryMessage = game.checkWinner();
         if(!victoryMessage.equals("")){
-            activityLogTextField.appendText(victoryMessage);
+            activityLogTextField.appendText(victoryMessage + "\n");
         }
         loadCards();
         updateTextAreas();
@@ -404,14 +418,17 @@ public class GamePlayController {
         card4.setWrapText(true);
         card5.setWrapText(true);
 
-        //populate the text area using card information
-        card1.insertText(0, "Card Power: " + game.getHand().get(0).getActionValue());
-        card1.insertText(0, "Card Type: " + game.getHand().get(0).getActionType() + "\n");
-        card1.insertText(0, game.getHand().get(0).getCardName() + "\n");
 
-        card2.insertText(0, "Card Power: " + game.getHand().get(1).getActionValue());
-        card2.insertText(0, "Card Type: " + game.getHand().get(1).getActionType() + "\n");
+        //populate the text area using card information
+
+
+        card1.insertText(0, game.getHand().get(0).getCardName() + "\n");
+        card1.appendText("Card Type: " + game.getHand().get(0).getActionType() + "\n");
+        card1.appendText("Card Power: " + game.getHand().get(0).getActionValue());
+
         card2.insertText(0, game.getHand().get(1).getCardName() + "\n");
+        card2.appendText("Card Type: " + game.getHand().get(1).getActionType() + "\n");
+        card2.appendText("Card Power: " + game.getHand().get(1).getActionValue());
 
         card3.insertText(0, "Card Power: " + game.getHand().get(2).getActionValue());
         card3.insertText(0, "Card Type: " + game.getHand().get(2).getActionType() + "\n");
