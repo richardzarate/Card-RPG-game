@@ -1,0 +1,19 @@
+.log-label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 4px;
+}
+
+.log-player {
+    -fx-text-fill: #00ff00; /* bright green for player actions */
+    -fx-font-weight: bold;
+}
+
+.log-enemy {
+    -fx-text-fill: #ff4444; /* red for enemy actions */
+}
+
+.log-system {
+    -fx-text-fill: #cccccc; /* light gray for system messages */
+    -fx-font-style: italic;
+}

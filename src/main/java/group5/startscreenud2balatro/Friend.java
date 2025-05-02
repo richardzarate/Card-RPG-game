@@ -6,6 +6,14 @@ public class Friend extends Unit{
         super(name, health, attack, defense, type);
     }
 
+    public Friend(String name, int health, int attack, int defense, String type, String idleSpritePath, String attackSpritePath, String shieldSpritePath){
+
+        super(name, health, attack, defense, type, idleSpritePath, attackSpritePath, shieldSpritePath);
+//        System.out.println("Friend with Sprite created!");
+    }
+
+
+
     //action function for Friend class depends on the unit and card stats plus if the card type matches the unit type
     public String action(Card card, Unit target){
 

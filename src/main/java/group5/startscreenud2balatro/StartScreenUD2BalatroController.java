@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -69,6 +68,25 @@ public class StartScreenUD2BalatroController {
     @FXML
     private void onClickOptions() {
         System.out.println("Options button clicked!");
+
+
+
+        Stage mainMenuStage = (Stage) playButton.getScene().getWindow();
+        gameplayGUIController gameplayGUI = new gameplayGUIController();
+        gameplayGUI.initialize();
+        mainMenuStage.setScene(gameplayGUIController.getScene());
+
+
+
+//        gameplayGUIScene gameplayScene = new gameplayGUIScene();
+//        gameplayScene.start();
+
+//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/group5/GameScreen.fxml"));
+//        Parent gamePlayRoot = fxmlLoader.load();
+//        Scene gamePlayScene = new Scene(gamePlayRoot);
+//        Stage stage = (Stage) playButton.getScene().getWindow();
+//        stage.setScene(gamePlayScene);
+//        stage.setResizable(true);
 
         // Image of Balatro's options screen
         // stage.setScene() method to change to Options scene

@@ -11,6 +11,14 @@ public class GameMaster {
     private Vector<Enemy> activeEnemyUnits;
     private Vector<Friend> activeFriendUnits;
 
+    private int currentFriendIndex;
+    private int currentEnemyTarget;
+
+    private String turnLog = "";
+
+    private Unit enemyTarget;
+    private int enemyTargetIndex;
+
 
     /*
     Creating static default friendly units and possible card elements
@@ -18,9 +26,22 @@ public class GameMaster {
     The only purpose of these units are for demonstration. Since creating units would take past deadline
      */
 
-    public static Friend f1 = new Friend("Swordsman", 500, 700, 300, "attack");
-    public static Friend f2 = new Friend("Knight", 1000, 1000, 600, "defend");
-    public static Friend f3 = new Friend("Healer", 750, 200, 250, "heal");
+//    public static Friend f1 = new Friend("Swordsman", 500, 700, 300, "attack");
+//    public static Friend f2 = new Friend("Knight", 1000, 1000, 600, "defend");
+//    public static Friend f3 = new Friend("Healer", 750, 200, 250, "heal");
+
+    public static Friend f1 = new Friend("Samurai", 500, 700, 300, "attack",
+            "/sprites/friends/Samurai/Idle.png",
+            "/sprites/friends/Samurai/Attack_2.png",
+            "/sprites/friends/Samurai/Shield.png");
+    public static Friend f2 = new Friend("Fighter", 1000, 1000, 600, "defend",
+            "/sprites/friends/Fighter/Idle.png",
+            "/sprites/friends/Fighter/Attack_3.png",
+            "/sprites/friends/Fighter/Shield.png");
+    public static Friend f3 = new Friend("Shinobi", 750, 200, 250, "heal",
+            "/sprites/friends/Shinobi/Idle.png",
+            "/sprites/friends/Shinobi/Attack_1.png",
+            "/sprites/friends/Shinobi/Shield.png");
 
     private static String[] allPossibleCardTypes = {"attack", "defend", "heal"};
     private static String[] possibleAttackActions = {"Punch", "Swing", "Stab", "Shoot", "Kick", "Uppercut", "Pummel", "Spin Attack"};
@@ -66,6 +87,9 @@ public class GameMaster {
         hand = new Vector<Card>();
         activeEnemyUnits = new Vector<Enemy>();
         activeFriendUnits = new Vector<Friend>();
+
+        currentFriendIndex = 0;
+        currentEnemyTarget = 0;
     }
 
     public static GameMaster getInstance(String player, int totalFloor) {
@@ -183,6 +207,48 @@ public class GameMaster {
         //activeEnemyUnits.add(e2);
 
          */
+    }
+
+    public void processTurn(Card c, Unit playerTarget){
+
+
+
+        Random random = new Random();
+        int randNum = random.nextInt(3);
+        turnLog += activeFriendUnits.get(currentFriendIndex).action(c, playerTarget) + "\n";
+        turnLog += activeEnemyUnits.get(currentFriendIndex).action(activeFriendUnits.get(randNum));
+        enemyTarget = activeEnemyUnits.get(currentFriendIndex).getCurrentTarget();
+        if(enemyTarget instanceof Friend){
+            enemyTargetIndex = activeFriendUnits.indexOf(enemyTarget);
+        }
+        else{
+            enemyTargetIndex = activeEnemyUnits.indexOf(enemyTarget);
+        }
+
+        if(currentFriendIndex > 2){
+            currentFriendIndex = 0;
+        }
+        else{
+            currentFriendIndex++;
+        }
+
+
+    }
+
+    public String getTurnLog(){
+        return turnLog;
+    }
+
+    public void setTurnLog(String s){
+        turnLog = s;
+    }
+
+    public Unit getEnemyTarget(){
+        return enemyTarget;
+    }
+
+    public int getEnemyTargetIndex(){
+        return enemyTargetIndex;
     }
 
 
@@ -388,6 +454,9 @@ public class GameMaster {
             enemyDefenseValue = possibleUnitValues[randNum];
         }
 
-        return new Enemy(enemyName, enemyHpValue, enemyAttackValue, enemyDefenseValue, enemyType);
+        return new Enemy(enemyName, enemyHpValue, enemyAttackValue, enemyDefenseValue, enemyType,
+                "/sprites/Default Sprite/Idle.png",
+                "/sprites/Default Sprite/Attack.png",
+                "/sprites/Default Sprite/Hurt.png");
     }
 }
