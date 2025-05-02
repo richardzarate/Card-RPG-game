@@ -1,8 +1,15 @@
 package group5.startscreenud2balatro;
 
 public class Enemy extends Unit {
+    private Unit currentTarget;
     public Enemy(String name, int health, int attack, int defense, String type){
         super(name, health, attack, defense, type);
+    }
+
+    public Enemy(String name, int health, int attack, int defense, String type, String idleSpritePath, String attackSpritePath, String shieldSpritePath){
+
+        super(name, health, attack, defense, type, idleSpritePath, attackSpritePath, shieldSpritePath);
+//        System.out.println("Friend with Sprite created!");
     }
 
     //enemy unit action that depends on their health. Plus returns a string to state what they're doing
@@ -12,12 +19,15 @@ public class Enemy extends Unit {
         if(this.currentHealth <= (this.maxHealth / 2)){
             if(this.type == "healer"){
                 target.currentHealth += (int) (this.maxHealth * .1); //heals for 10% of unit's health
+                currentTarget = this;
                 return this.name + " heals for " + (int)(this.maxHealth * .1);
             }
             else{
                 this.defense = (int)(this.defense * 1.1); //defensive stance
+                currentTarget = this;
                 return this.name + " goes into defensive stance.";
             }
+
 
         }
         //if enemy's health is high enough, it will attack instead
@@ -27,9 +37,14 @@ public class Enemy extends Unit {
             }
             damage = (this.attack / target.defense);
             target.currentHealth -= damage;
+            currentTarget = target;
             return this.name + " attacks " + target.name + " for " + damage + " damage.";
         }
 
 
+    }
+
+    public Unit getCurrentTarget(){
+        return currentTarget;
     }
 }
