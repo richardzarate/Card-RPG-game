@@ -26,10 +26,6 @@ public class GameMaster {
     The only purpose of these units are for demonstration. Since creating units would take past deadline
      */
 
-//    public static Friend f1 = new Friend("Swordsman", 500, 700, 300, "attack");
-//    public static Friend f2 = new Friend("Knight", 1000, 1000, 600, "defend");
-//    public static Friend f3 = new Friend("Healer", 750, 200, 250, "heal");
-
     public static Friend f1 = new Friend("Samurai", 500, 700, 300, "attack",
             "/sprites/friends/Samurai/Idle.png",
             "/sprites/friends/Samurai/Attack_2.png",
@@ -182,31 +178,6 @@ public class GameMaster {
 
         this.currentFloor = 1;
 
-
-        /*
-        //init player hand
-        //init friend and enemy units
-        Random rand = new Random();
-        int randcardname = rand.nextInt(8);
-        for(int i = 0; i < 5; i++){
-            Card c = new Card(othercardtype[randcardname], possibleCardTypes[randcardname], actionvalues[randcardname]);
-            hand.add(c);
-        }
-        int randfriend1 = rand.nextInt(5);
-        //int randfriend2 = rand.nextInt(5);
-        Friend f1 = new Friend(possibleFriends[randfriend1], healthfriends[randfriend1], attackfriends[randfriend1], defensefriends[randfriend1], typefriends[randfriend1]);
-        //Friend f2 = new Friend(possibleFriends[randfriend2], healthfriends[randfriend2], attackfriends[randfriend2], defensefriends[randfriend2], typefriends[randfriend2]);
-        activeFriendUnits.add(f1);
-        //activeFriendUnits.add(f2);
-
-        int randen1 = rand.nextInt(3);
-        //int randen2 = rand.nextInt(3);
-        Enemy e1 = new Enemy(possibleEnemies[randen1], healthenemy[randen1], attackenemy[randen1], defenseenemy[randen1], typeenemy[randen1]);
-        //Enemy e2 = new Enemy(possibleEnemies[randen2], healthenemy[randen2], attackenemy[randen2], defenseenemy[randen2], typeenemy[randen2]);
-        activeEnemyUnits.add(e1);
-        //activeEnemyUnits.add(e2);
-
-         */
     }
 
     public void processTurn(Card c, Unit playerTarget){
@@ -232,6 +203,11 @@ public class GameMaster {
             currentFriendIndex++;
         }
 
+        hand.remove(c);
+        System.out.println("Hand Size: " + hand.size());
+        hand.add(createRandomCard());
+        System.out.println("Hand Size after generating another card: " + hand.size());
+
 
     }
 
@@ -252,48 +228,9 @@ public class GameMaster {
     }
 
 
-    //TODO: Check if this function is needed
-    public boolean runBattle(Card selectedCard, Unit target) {
-        Random random = new Random();
-        int randTarget = random.nextInt(3); //Enemies will pick a random Target
-
-//        Unit targetedUnit = ac
-
-//        f1.action(selectedCard, target);
-
-
-        /*
-        if (targetIndex < 0 || targetIndex >= activeEnemyUnits.size()) {
-            System.out.println("Invalid target index.");
-            return;
-        }
-
-        Enemy targetEnemy = activeEnemyUnits.get(targetIndex);
-        Friend playerUnit = activeFriendUnits.get(0);
-        playerUnit.action(selectedCard, targetEnemy);
-        if (targetEnemy.getCurrentHealth() <= 0) {
-            System.out.println(targetEnemy.getName() + " has been defeated!");
-            activeEnemyUnits.remove(targetIndex);
-            return;
-        }
-
-        System.out.println(targetEnemy.action(playerUnit));
-        if (playerUnit.getCurrentHealth() <= 0) {
-            System.out.println(playerUnit.getName() + " has been defeated! Game over.");
-        }
-
-         */
-//        currentFloor++;
-
-        return true;
-//        totalFloor++;
-    }
-
 
     public Card useCardInHand(int cardIndex) {
-//        if (cardIndex < 0 || cardIndex >= hand.size()) {
-//            return;
-//        }
+
         Card selectedCard = hand.get(cardIndex);
         //runBattle(selectedCard, targetIndex);
         hand.remove(cardIndex);
@@ -301,11 +238,6 @@ public class GameMaster {
         return selectedCard;
     }
 
-
-    //Might not be needed after all
-    public void updateUnits(){
-
-    }
 
     public String checkWinner(){
         String victoryMessage = "";
