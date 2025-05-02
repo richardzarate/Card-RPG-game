@@ -92,6 +92,7 @@ public class gameplayGUIController{
     private static Label backToMenuLabel;
     private static Label floorLabel;
 
+    private static StackPane root;
 
 
 
@@ -182,6 +183,7 @@ public class gameplayGUIController{
 
         friendStatsLabelHolder = new Vector<Label>();
         enemyStatsLabelHolder = new Vector<Label>();
+        cardGraphicsHolder = new Vector<StackPane>();
 
         backToMenuLabel = new Label("<Back To Menu");
         backToMenuLabel.setFont(HeaderFont);
@@ -194,6 +196,8 @@ public class gameplayGUIController{
         floorLabel = new Label("Floor: " + game.getCurrentFloor() + "/" + game.getTotalFloor());
         floorLabel.setFont(HeaderFont);
         floorLabel.setTextFill(Color.WHITE);
+
+        root = new StackPane();
 
 
 
@@ -208,7 +212,7 @@ public class gameplayGUIController{
 
 
         //load StackPane to be able to stack sprites over the background
-        StackPane root = new StackPane();
+//        StackPane root = new StackPane();
 
 
         //Prepare Background and ready it to be loaded into the scene
@@ -379,6 +383,8 @@ private void setupIdleAnimation(ImageView u) {
         cardPane.setTranslateX(x);
         cardPane.setTranslateY(y);
 
+        cardGraphicsHolder.add(cardPane);
+
 
     }
 
@@ -527,6 +533,20 @@ private void setupIdleAnimation(ImageView u) {
 
             cardSelected = false;
             unitSelected = false;
+
+            //turn is processed redraw cards here, make sure that a new card is generated in player hand
+            for(StackPane card : cardGraphicsHolder){
+                root.getChildren().remove(card);
+            }
+            int cardIndex = 0;
+            for(Card newCard : game.getHand()){
+
+                drawCard(root, newCard, cardIndex);
+                cardIndex++;
+            }
+            cardIndex = 0;
+
+
         }
         else{
             addMessage(logContent, "Please select a target...");
