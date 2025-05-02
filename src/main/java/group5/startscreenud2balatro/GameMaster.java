@@ -160,7 +160,7 @@ public class GameMaster {
 
     public void initializeFloor(){
 
-        for(int i = 0; i <= 5; i++){
+        for(int i = 0; i <= 4; i++){
             hand.add(createRandomCard());
         }
         //adding default units as active units
@@ -203,6 +203,7 @@ public class GameMaster {
             currentFriendIndex++;
         }
 
+        System.out.println("Hand size before removing card" + hand.size());
         hand.remove(c);
         System.out.println("Hand Size: " + hand.size());
         hand.add(createRandomCard());
